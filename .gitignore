@@ -1,0 +1,6 @@
+.vs/
+Selenium.StrongTyped/bin/
+Selenium.StrongTyped/obj/
+packages/
+.nuget
+Selenium.StrongTyped.sln.DotSettings.user
