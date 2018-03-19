@@ -9,7 +9,9 @@ Project will be available as a nuget package at <a href="https://www.nuget.org/p
 ## How to create the StrongTyped controls.
 Within POM or test method.
 - public TextElement textBox = new TextElement(new ChromeDriver(), By.Id("id"));
+
 or using an Expression body:
+
 - private TextElement TextBox => new TextElement(Driver, By.CssSelector(".button"));
 
 NOTE - The finding of the element uses a WebDriver wait to search for the control and currently times out after 30 seconds 
