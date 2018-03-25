@@ -13,11 +13,19 @@ namespace Selenium.StrongTyped.Controls
         /// <summary>
         /// Constructor for the List Element.
         /// </summary>
-        /// <param name="context">Base element to search from to find the Checkbox Element within.</param>
-        /// <param name="selector">The Selector to use to find the Checkbox Element.</param>
-        /// <param name="T"></param>
-        public ListElement(ISearchContext context, By selector) : base(context, selector, true) { }
-        
+        /// <param name="context">Base element to search from to find the List Element within.</param>
+        /// <param name="selector">The Selector to use to find the List Element.</param>
+        /// <param name="seconds">The number of seconds to wait for the List Element to be available.</param>
+        public ListElement(ISearchContext context, By selector, int seconds = 30) : base(context, selector, seconds, true) { }
+
+        /// <summary>
+        /// Constructor for the Checkbox Element.
+        /// </summary>
+        /// <param name="context">Base element to search from to find the List Element within.</param>
+        /// <param name="selector">The Selector to use to find the List Element.</param>
+        /// <param name="timeSpan">The timespan to wait until the List Element to be available.</param>
+        public ListElement(ISearchContext context, By selector, TimeSpan timeSpan) : base(context, selector, timeSpan) { }
+
         /// <summary>
         /// Returns an Element based on the value passed in.
         /// </summary>

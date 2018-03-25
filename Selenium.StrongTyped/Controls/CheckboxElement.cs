@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
 namespace Selenium.StrongTyped.Controls
 {
@@ -12,7 +13,16 @@ namespace Selenium.StrongTyped.Controls
         /// </summary>
         /// <param name="context">Base element to search from to find the Checkbox Element within.</param>
         /// <param name="selector">The Selector to use to find the Checkbox Element.</param>
-        public CheckboxElement(ISearchContext context, By selector) : base(context, selector) { }
+        /// <param name="seconds">The number of seconds to wait for the Checkbox Element to be available.</param>
+        public CheckboxElement(ISearchContext context, By selector, int seconds = 30) : base(context, selector, seconds) { }
+
+        /// <summary>
+        /// Constructor for the Checkbox Element.
+        /// </summary>
+        /// <param name="context">Base element to search from to find the Checkbox Element within.</param>
+        /// <param name="selector">The Selector to use to find the Checkbox Element.</param>
+        /// <param name="timeSpan">The timespan to wait until the Checkbox Element to be available.</param>
+        public CheckboxElement(ISearchContext context, By selector, TimeSpan timeSpan) : base(context, selector, timeSpan) { }
 
         /// <summary>
         /// Click the Checkbox Element.

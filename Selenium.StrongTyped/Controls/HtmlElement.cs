@@ -16,20 +16,45 @@ namespace Selenium.StrongTyped.Controls
         /// </summary>
         /// <param name="context">The base element to search from.</param>
         /// <param name="selector">The by selector to be search for.</param>
+        /// <param name="seconds">The number of seconds to wait</param>
         /// <param name="listElement">If the search element is a list or a single control.</param>
-        protected internal HtmlElement(ISearchContext context, By selector, bool listElement = false)
+        protected HtmlElement(ISearchContext context, By selector, int seconds = 30, bool listElement = false)
         {
-            var wait = new DefaultWait<ISearchContext>(context) { Timeout = TimeSpan.FromSeconds(30) };
-            if (listElement) {
+            var wait = new DefaultWait<ISearchContext>(context) { Timeout = TimeSpan.FromSeconds(seconds) };
+            if (listElement)
+            {
                 wait.Until(c => c.FindElements(selector).Count > 0);
                 Elements = context.FindElements(selector);
             }
-            else {
+            else
+            {
                 wait.Until(c => c.FindElement(selector));
                 Element = context.FindElement(selector);
             }
         }
 
+        /// <summary>
+        /// Finds the element or list of elements from the context, using the passed in selector.  It waits for as long as you specify.
+        /// </summary>
+        /// <param name="context">The base element to search from.</param>
+        /// <param name="selector">The by selector to be search for.</param>
+        /// <param name="timespan">The timespan for how long to wait.</param>
+        /// <param name="listElement">If the search element is a list or a single control.</param>
+        protected internal HtmlElement(ISearchContext context, By selector, TimeSpan timespan, bool listElement = false)
+        {
+            var wait = new DefaultWait<ISearchContext>(context) { Timeout = timespan };
+            if (listElement)
+            {
+                wait.Until(c => c.FindElements(selector).Count > 0);
+                Elements = context.FindElements(selector);
+            }
+            else
+            {
+                wait.Until(c => c.FindElement(selector));
+                Element = context.FindElement(selector);
+            }
+        }
+        
         private IWebElement Element { get; }
         internal IWebElement GetElement() => Element;
         private IReadOnlyCollection<IWebElement> Elements { get; }
