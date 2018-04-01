@@ -57,6 +57,7 @@
     <Compile Include="Controls\HtmlElement.cs" />
     <Compile Include="Controls\LabelElement.cs" />
     <Compile Include="Controls\ListElement.cs" />
+    <Compile Include="Controls\RadioElement.cs" />
     <Compile Include="Controls\TextElement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
