@@ -26,6 +26,7 @@ Current Controls available are (Actions):
 - CheckboxElement  	{ Click(), Selected }
 - LabelElement  	{ Value }
 - ListElement  		{ GetItemByValue(), SelectItemByValue(), Count, Elements }
+- RadioElement      { Click(), Selected }
 - TextElement  		{ SendKeys(), Text, Clear() }
 
 All elements also have.
