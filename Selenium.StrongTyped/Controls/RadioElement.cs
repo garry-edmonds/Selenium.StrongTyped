@@ -8,6 +8,8 @@ namespace Selenium.StrongTyped.Controls
     /// </summary>
     public sealed class RadioElement : HtmlElement
     {
+        #region Constructrs
+
         /// <summary>
         /// Constructor for the Radio Element.
         /// </summary>
@@ -24,6 +26,23 @@ namespace Selenium.StrongTyped.Controls
         /// <param name="timeSpan">The timespan to wait until the Radio Element to be available.</param>
         public RadioElement(ISearchContext context, By selector, TimeSpan timeSpan) : base(context, selector, timeSpan) { }
 
+        #endregion
+
+        #region Used for FindElements
+
+        internal RadioElement(IWebElement element) 
+            : base(element) { }
+
+        internal RadioElement(ISearchContext context, By selector, int seconds, bool listElements) 
+            : base(context, selector, seconds, listElements) { }
+
+        internal RadioElement(ISearchContext context, By selector, TimeSpan timeSpan, bool listElements) 
+            : base(context, selector, timeSpan, listElements) { }
+
+        #endregion
+
+        #region Radio Methods
+
         /// <summary>
         /// Click the Radio Element.
         /// </summary>
@@ -34,5 +53,7 @@ namespace Selenium.StrongTyped.Controls
         /// </summary>
         /// <returns>True / False if Radio item ins selected.</returns>
         public new bool Selected() => base.Selected;
+        
+        #endregion
     }
 }

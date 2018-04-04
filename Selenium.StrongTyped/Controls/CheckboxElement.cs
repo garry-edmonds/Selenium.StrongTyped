@@ -8,6 +8,8 @@ namespace Selenium.StrongTyped.Controls
     /// </summary>
     public sealed class CheckboxElement : HtmlElement
     {
+        #region Constructors
+
         /// <summary>
         /// Constructor for the Checkbox Element.
         /// </summary>
@@ -24,6 +26,23 @@ namespace Selenium.StrongTyped.Controls
         /// <param name="timeSpan">The timespan to wait until the Checkbox Element to be available.</param>
         public CheckboxElement(ISearchContext context, By selector, TimeSpan timeSpan) : base(context, selector, timeSpan) { }
 
+        #endregion
+
+        #region Used for FindElements
+
+        internal CheckboxElement(IWebElement element) 
+            : base(element) { }
+
+        internal CheckboxElement(ISearchContext context, By selector, int seconds, bool listElements) 
+            : base(context, selector, seconds, listElements) { }
+
+        internal CheckboxElement(ISearchContext context, By selector, TimeSpan timeSpan, bool listElements) 
+            : base(context, selector, timeSpan, listElements) { }
+
+        #endregion
+
+        #region Checkbox Methods
+
         /// <summary>
         /// Click the Checkbox Element.
         /// </summary>
@@ -34,6 +53,7 @@ namespace Selenium.StrongTyped.Controls
         /// </summary>
         /// <returns>bool if the Checkbox is checked or not.</returns>
         public new bool Selected => base.Selected;
-        
+
+        #endregion
     }
 }

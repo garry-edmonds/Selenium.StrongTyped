@@ -54,11 +54,14 @@
   <ItemGroup>
     <Compile Include="Controls\ButtonElement.cs" />
     <Compile Include="Controls\CheckboxElement.cs" />
+    <Compile Include="Controls\CustomElement.cs" />
+    <Compile Include="FindBySearchContext.cs" />
+    <Compile Include="FindByElement.cs" />
     <Compile Include="Controls\HtmlElement.cs" />
     <Compile Include="Controls\LabelElement.cs" />
-    <Compile Include="Controls\ListElement.cs" />
     <Compile Include="Controls\RadioElement.cs" />
     <Compile Include="Controls\TextElement.cs" />
+    <Compile Include="ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

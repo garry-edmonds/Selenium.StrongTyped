@@ -8,6 +8,8 @@ namespace Selenium.StrongTyped.Controls
     /// </summary>
     public sealed class TextElement : HtmlElement
     {
+        #region Constructors
+
         /// <summary>
         /// Constructor for the Text Element.
         /// </summary>
@@ -17,13 +19,30 @@ namespace Selenium.StrongTyped.Controls
         public TextElement(ISearchContext context, By selector, int seconds = 30) : base(context, selector, seconds) { }
 
         /// <summary>
-        /// Constructor for the Checkbox Element.
+        /// Constructor for the Text Element.
         /// </summary>
         /// <param name="context">Base element to search from to find the Text Element within.</param>
         /// <param name="selector">The Selector to use to find the Text Element.</param>
         /// <param name="timeSpan">The timespan to wait until the Text Element to be available.</param>
         public TextElement(ISearchContext context, By selector, TimeSpan timeSpan) : base(context, selector, timeSpan) { }
 
+        #endregion
+
+        #region Used for FindElements
+
+        internal TextElement(IWebElement element) 
+            : base(element) { }
+
+        internal TextElement(ISearchContext context, By selector, int seconds, bool listElements) 
+            : base(context, selector, seconds, listElements) { }
+
+        internal TextElement(ISearchContext context, By selector, TimeSpan timeSpan, bool listElements) 
+            : base(context, selector, timeSpan, listElements) { }
+
+        #endregion
+
+        #region Text Methods
+        
         /// <summary>
         /// Enter the string into the Text box.
         /// </summary>
@@ -40,6 +59,7 @@ namespace Selenium.StrongTyped.Controls
         /// Clear the value in the text box.
         /// </summary>
         public new void Clear() => base.Clear();
-        
+
+        #endregion
     }
 }

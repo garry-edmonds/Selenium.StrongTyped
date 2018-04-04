@@ -11,12 +11,23 @@ namespace Selenium.StrongTyped.Controls
     /// </summary>
     public class HtmlElement 
     {
+        #region Constructors
+
+        /// <summary>
+        /// Stores the element, so can be used to call the methods on the element.  Used for the FindElements method.
+        /// </summary>
+        /// <param name="element">The element to store in this class.</param>
+        protected internal HtmlElement(IWebElement element)
+        {
+            Element = element;
+        }
+
         /// <summary>
         /// Finds the element or list of elements from the context, using the passed in selector.  It waits upto 30 seconds to find the control before exiting.
         /// </summary>
         /// <param name="context">The base element to search from.</param>
         /// <param name="selector">The by selector to be search for.</param>
-        /// <param name="seconds">The number of seconds to wait</param>
+        /// <param name="seconds">The number of seconds to wait.</param>
         /// <param name="listElement">If the search element is a list or a single control.</param>
         protected HtmlElement(ISearchContext context, By selector, int seconds = 30, bool listElement = false)
         {
@@ -54,19 +65,26 @@ namespace Selenium.StrongTyped.Controls
                 Element = context.FindElement(selector);
             }
         }
+
+        #endregion
+
+        internal IWebElement Element { get; }
         
-        private IWebElement Element { get; }
-        internal IWebElement GetElement() => Element;
-        private IReadOnlyCollection<IWebElement> Elements { get; }
+        internal IReadOnlyCollection<IWebElement> Elements { get; }
         internal IReadOnlyCollection<IWebElement> GetElements() => Elements;
-        internal IWebElement FindElement(By selector) => Element.FindElement(selector);
-        internal IReadOnlyCollection<IWebElement> FindElements(By selector) => Element.FindElements(selector);
+
+        #region Methods that are exposed by the specific control type
+
         internal void Clear() => Element.Clear();
         internal void SendKeys(string text) => Element.SendKeys(text);
         internal void Submit() => Element.Submit();
         internal void Click() => Element.Click();
         internal string Text => Element.Text;
         internal bool Selected => Element.Selected;
+
+        #endregion
+
+        #region Methods that are available for all control types
 
         /// <summary>
         /// Gets a value indicating wheather or not this element is enabled.
@@ -106,5 +124,7 @@ namespace Selenium.StrongTyped.Controls
         /// Gets a value indicating wheather or not this element is displayed.
         /// </summary>
         public bool Displayed => Element.Displayed;
+
+        #endregion
     }
 }
