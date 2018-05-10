@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Selenium.StrongTyped</id>
-    <version>0.0.4</version>
+    <version>0.0.5</version>
+	<title>Selenium StrongTyped</title>
     <authors>Garry Edmonds</authors>
     <owners>Garry Edmonds</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,12 +12,26 @@
     <description>Strong Typed controls using the IWebElement methods, but only exposing the functions required for each control type.</description>
     <tags>Selenium IWebElement Test Automation plugin addin</tags>
     <dependencies>
-      <dependency id="Selenium.Support" version="3.11.0" />
-	  <dependency id="Selenium.WebDriver" version="3.11.0" />
+	  <group targetFramework=".NETFramework3.5">
+		<dependency id="Selenium.Support" version="3.11.0" exclude="Build,Analyzers" />
+		<dependency id="Selenium.WebDriver" version="3.11.0" exclude="Build,Analyzers" />
+	  </group>
+      <group targetFramework=".NETFramework4.0">
+	    <dependency id="Selenium.Support" version="3.11.0" exclude="Build,Analyzers" />
+		<dependency id="Selenium.WebDriver" version="3.11.0" exclude="Build,Analyzers" />
+	  </group>
+	  <group targetFramework=".NETFramework4.5">
+	    <dependency id="Selenium.Support" version="3.11.0" exclude="Build,Analyzers" />
+		<dependency id="Selenium.WebDriver" version="3.11.0" exclude="Build,Analyzers" />
+	  </group>
+	  <group targetFramework=".NETStandard2.0">
+	    <dependency id="Selenium.Support" version="3.11.0" exclude="Build,Analyzers" />
+		<dependency id="Selenium.WebDriver" version="3.11.0" exclude="Build,Analyzers" />
+	  </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="Selenium.StrongTyped\bin\release\Selenium.StrongTyped.dll" target="lib\Selenium.StrongTyped.dll" />
-    <file src="Selenium.StrongTyped\bin\release\Selenium.StrongTyped.xml" target="lib\Selenium.StrongTyped.xml" />
+    <file src="Selenium.StrongTyped\bin\release\Selenium.StrongTyped.dll" target="lib\" />
+    <file src="Selenium.StrongTyped\bin\release\Selenium.StrongTyped.xml" target="lib\" />
   </files>
 </package>

@@ -30,6 +30,12 @@ namespace Selenium.StrongTyped.Controls
                 el = (T)(object)new RadioElement(context, selector, seconds);
             else if (typeof(T) == typeof(TextElement))
                 el = (T)(object)new TextElement(context, selector, seconds);
+            else if (typeof(T) == typeof(TableElement))
+                el = (T)(object)new TableElement(context, selector, seconds);
+            else if (typeof(T) == typeof(TableRowElement))
+                el = (T)(object)new TableRowElement(context, selector, seconds);
+            else if (typeof(T) == typeof(TableCellElement))
+                el = (T)(object)new TableCellElement(context, selector, seconds);
             else
                 el = (T)(object)new CustomElement(context, selector, seconds);
             return el;
@@ -56,6 +62,12 @@ namespace Selenium.StrongTyped.Controls
                 el = (T)(object)new RadioElement(context, selector, timespan);
             else if (typeof(T) == typeof(TextElement))
                 el = (T)(object)new TextElement(context, selector, timespan);
+            else if (typeof(T) == typeof(TableElement))
+                el = (T)(object)new TableElement(context, selector, timespan);
+            else if (typeof(T) == typeof(TableRowElement))
+                el = (T)(object)new TableRowElement(context, selector, timespan);
+            else if (typeof(T) == typeof(TableCellElement))
+                el = (T)(object)new TableCellElement(context, selector, timespan);
             else
                 el = (T)(object)new CustomElement(context, selector, timespan);
             return el;
@@ -107,6 +119,27 @@ namespace Selenium.StrongTyped.Controls
                     foreach (var webElement in text.Elements)
                     {
                         el.Add((T)(object)new TextElement(webElement));
+                    }
+                    break;
+                case "TableElement":
+                    var table = (T)(object)new TableElement(context, selector, seconds, true);
+                    foreach (var webElement in table.Elements)
+                    {
+                        el.Add((T)(object)new TableElement(webElement));
+                    }
+                    break;
+                case "TableRowElement":
+                    var tableRow = (T)(object)new TableRowElement(context, selector, seconds, true);
+                    foreach (var webElement in tableRow.Elements)
+                    {
+                        el.Add((T)(object)new TableRowElement(webElement));
+                    }
+                    break;
+                case "TableCellElement":
+                    var tableCell = (T)(object)new TableCellElement(context, selector, seconds, true);
+                    foreach (var webElement in tableCell.Elements)
+                    {
+                        el.Add((T)(object)new TableCellElement(webElement));
                     }
                     break;
                 default:
@@ -166,6 +199,27 @@ namespace Selenium.StrongTyped.Controls
                     foreach (var webElement in text.Elements)
                     {
                         el.Add((T)(object)new TextElement(webElement));
+                    }
+                    break;
+                case "TableElement":
+                    var table = (T)(object)new TableElement(context, selector, timespan, true);
+                    foreach (var webElement in table.Elements)
+                    {
+                        el.Add((T)(object)new TableElement(webElement));
+                    }
+                    break;
+                case "TableRowElement":
+                    var tableRow = (T)(object)new TableRowElement(context, selector, timespan, true);
+                    foreach (var webElement in tableRow.Elements)
+                    {
+                        el.Add((T)(object)new TableRowElement(webElement));
+                    }
+                    break;
+                case "TableCellElement":
+                    var tableCell = (T)(object)new TableCellElement(context, selector, timespan, true);
+                    foreach (var webElement in tableCell.Elements)
+                    {
+                        el.Add((T)(object)new TableCellElement(webElement));
                     }
                     break;
                 default:

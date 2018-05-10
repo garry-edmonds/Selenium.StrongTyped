@@ -55,6 +55,9 @@
     <Compile Include="Controls\ButtonElement.cs" />
     <Compile Include="Controls\CheckboxElement.cs" />
     <Compile Include="Controls\CustomElement.cs" />
+    <Compile Include="Controls\TableCellElement.cs" />
+    <Compile Include="Controls\TableRowElement.cs" />
+    <Compile Include="Controls\TableElement.cs" />
     <Compile Include="FindBySearchContext.cs" />
     <Compile Include="FindByElement.cs" />
     <Compile Include="Controls\HtmlElement.cs" />

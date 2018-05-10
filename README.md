@@ -62,6 +62,9 @@ Current Controls available are (Actions):
 - LabelElement  	{ Value }
 - RadioElement      { Click(), Selected }
 - TextElement  		{ SendKeys(), Text, Clear() }
+- TableElement      { List of HeaderRows, List of BodyRows }
+- TableRowElement   { List of Cells, Click(), Text }
+- TableCellElement  { Click(), Text }
 
 All elements also have.
 
